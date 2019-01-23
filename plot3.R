@@ -1,7 +1,10 @@
+# load main script readPowerDS.R
 require(readPowerDS.R)
 
+# define graphical device
 png("plot3.png", width = 480, height = 480)
 
+# create plotting histogram
 with(
     powerDS,
     plot(

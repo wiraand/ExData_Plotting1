@@ -1,4 +1,4 @@
-#Download dataset
+# Download dataset
 sourceUrl <-
     "http://archive.ics.uci.edu/ml/machine-learning-databases/00235/"
 zipFile <- "household_power_consumption.zip"
@@ -16,10 +16,11 @@ if (!file.exists(txtFile)) {
     unzip(zipfile = zipFile, exdir = ".")
 }
 
-
+# load required library
 library(data.table)
 library(dplyr)
 
+# load dataset, filter required observation data and add new column DateTime
 powerDS <- fread(input = txtFile, na.strings = "?")
 powerDS[, DateTime := as.Date(Date, format = "%d/%m/%Y")]
 powerDS <-
